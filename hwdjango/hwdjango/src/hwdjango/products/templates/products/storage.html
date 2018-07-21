@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+</style>
+
+<h2>Product</h2>
+
+<table style="width:100%">
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Price</th>
+  </tr>
+  {% for item in all_products %}
+  	<tr>
+	{% for key,val in item.items %}
+		  	<td> {{ val }} </td>
+	{% endfor %}
+ 	</tr>
+  {% endfor %}
+</table>
+<p>
+</p>
+{% endblock %}
