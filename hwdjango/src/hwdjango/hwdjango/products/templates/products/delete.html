@@ -1,0 +1,12 @@
+{% extends 'products/detail.html' %}
+
+{% block content_delete %}
+
+<h3>Do you want to delete "{{ obj.title }}"?</h3>
+<br>
+<form action={{ request.path }} method='POST'>{% csrf_token %}
+	<input type='submit' name='delete' value='Yes'/> 
+	<input type='submit' name='delete' value='No'/> 
+</form>
+
+{% endblock %}
