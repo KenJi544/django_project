@@ -22,13 +22,17 @@ from pages.views import about_view
 from products.views import product_detail_view
 from products.views import product_table_view
 from products.views import product_create_view
+from products.views import product_update_view
+from products.views import product_delete_view
 
 urlpatterns = [
     path('', home_view, name='home'),
     path('contact/', contact_view, name='contact'),
     path('about/', about_view, name='about'),
-    path('product/', product_detail_view, name='product'),
-    path('storage/', product_table_view, name='storage'),
-    path('create/', product_create_view, name='create'),
+    path('products/', product_table_view, name='storage'),
+    path('products/<int:id>/', product_detail_view, name='product'),
+    path('products/<int:id>/delete', product_delete_view, name='delete'),
+    path('products/<int:id>/update', product_update_view, name='update'),
+    path('products/create/', product_create_view, name='create'),
     path('admin/', admin.site.urls)
 ]

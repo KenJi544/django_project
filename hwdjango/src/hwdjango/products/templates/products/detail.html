@@ -1,36 +1,28 @@
-{% extends 'base.html' %}
+{% extends 'products/storage.html' %}
 
 {% block content %}
 
-<style>
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-</style>
+<h3>Product PK{{ obj.pk }}</h3>
 
-<h2>Product</h2>
-
-<table style="width:100%">
+<table id="products">
   <tr>
     <th>Title</th>
     <th>Description</th>
     <th>Price</th>
   </tr>
   <tr>
-		  <td> {{ title }} </td>
-		  <td> {{ description }} </td>
-		  <td> {{ price }} </td>
+		  <td> {{ obj.title }} </td>
+		  <td> {{ obj.description }} </td>
+		  <td> {{ obj.price }} </td>
   </tr>
 </table>
 {% endblock %}
 
 
-{% block content_2 %}
-<p>
-</p>
-{% endblock %}
-{% block content_3 %}
-<p>
-</p>
+{% block submenu %}
+<ul>
+    <li><a href='../'>&#8636</a>
+	    <li><a href='delete' ID='button_link'>Delete Item</a>
+	    <li><a href='update' ID='button_link'>Update Item</a>
+</ul>
 {% endblock %}
