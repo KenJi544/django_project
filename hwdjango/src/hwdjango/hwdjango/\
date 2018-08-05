@@ -7,11 +7,10 @@ from .forms import ProductForm
 from .models import Product
 # Create your views here.
 
-
 class PostHandler(object):
     def __init__(self, *args):
         self.obj = args[0]
-
+    
     def __call__(self, function):
         def wrapped(*args):
             result = function(*args)
@@ -29,7 +28,7 @@ def product_table_view(request, *args, **kwargs):
     else:
         dictsort = 'id'
     queryset = Product.objects.order_by(dictsort)
-
+    
     context = {
         'object_list': _paginate(request, queryset),
         'order': dictsort
@@ -103,10 +102,9 @@ def product_update_view(request, *args, **kwargs):
                 expected = 'save'
                 if answer == expected:
                     if _check_form(form):
-                        messages.info(request, '{} updated'.format(obj.title))
+                        messages.success('{} updated'.format(obj.title))
                     else:
-                        messages.info(request,
-                                      "{} can't update".format(obj.title))
+                        messages.success("{} can't update".format(obj.title))
             return _update()
         return render(request,
                       'products/product_create.html',
@@ -137,6 +135,7 @@ def product_delete_view(request, *args, **kwargs):
                     obj.delete()
                     messages.success(request, 'Delete successfull')
                     return redirect('/products/')
+        return None
             return _delete()
         context = {
                 'obj': obj
@@ -144,3 +143,5 @@ def product_delete_view(request, *args, **kwargs):
         return render(request, 'products/delete.html', context)
     except KeyError as key_error:
         print(key_error)
+
+
