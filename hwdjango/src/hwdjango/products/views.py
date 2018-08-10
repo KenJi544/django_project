@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib.auth.decorators import login_required
 
 from .forms import ProductForm
 # , RawProductForm
@@ -22,6 +23,7 @@ class PostHandler(object):
         return wrapped
 
 
+@login_required
 def product_table_view(request, *args, **kwargs):
 
     if product_sort(request):
@@ -62,6 +64,7 @@ def product_sort(request):
         return None
 
 
+@login_required
 def product_detail_view(request, *args, **kwargs):
     try:
         product_id = kwargs['id']
@@ -76,6 +79,7 @@ def product_detail_view(request, *args, **kwargs):
         return render(request, 'products/storage.html', context)
 
 
+@login_required
 def product_create_view(request, *args, **kwargs):
     form = ProductForm(request.POST or None)
     if form.is_valid():
@@ -89,6 +93,7 @@ def product_create_view(request, *args, **kwargs):
     return render(request, 'products/product_create.html', context)
 
 
+@login_required
 def product_update_view(request, *args, **kwargs):
     try:
         product_id = kwargs['id']
@@ -122,6 +127,7 @@ def _check_form(form):
     return False
 
 
+@login_required
 def product_delete_view(request, *args, **kwargs):
     try:
         product_id = kwargs['id']
