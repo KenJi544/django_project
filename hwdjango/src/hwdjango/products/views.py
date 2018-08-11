@@ -83,7 +83,6 @@ def product_detail_view(request, *args, **kwargs):
 def product_create_view(request, *args, **kwargs):
     form = ProductForm(request.POST or None)
     if form.is_valid():
-        print('valid')
         form.save()
         return redirect('/products/')
 
