@@ -5,18 +5,16 @@ based on django 2.0.7
 * make sure you have pip, virtualenv installed
 
 
-* if you run the app for the first time you need to install django 2.0.7
+* if you run the app for the first time you need to install django 2.0.7(it's in requirements.txt)
 * to run the app try runscripts or follow the instructions bellow
 * manual run:
 
-pip install -r requirements
+* preparing the virtual environment
 
-* to run the app on Unix/Linux:
-* activate virtualenv
-
-source bin/activate
+mkvirtualenv django_project --python=/usr/bin/python3.6
+pip install -r requirements.txt
 
 * run the server
 
 cd src/
-python manage.py runserver
+./manage.py runserver
