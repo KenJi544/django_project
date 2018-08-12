@@ -9,14 +9,14 @@ based on django 2.0.7
 * to run the app try runscripts or follow the instructions bellow
 * manual run:
 
-pip install requirements
+pip install -r requirements
 
-* to run the app
-*activate virtualenv
+* to run the app on Unix/Linux:
+* activate virtualenv
 
 source bin/activate
 
 * run the server
 
-cd src/hwdjango/
+cd src/
 python manage.py runserver
