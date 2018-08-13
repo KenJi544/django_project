@@ -1,6 +1,8 @@
+* app is currently hosted by pythonanywhere at
+http://kenji544.pythonanywhere.com/
+
 !!!still in development!!!
 based on django 2.0.7
-
 
 * make sure you have pip, virtualenv installed
 
